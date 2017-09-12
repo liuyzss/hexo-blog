@@ -24,3 +24,12 @@ find . -type f -name "*.txt" | xargs -I {} cp {}  /tmp/n/
 
 
 ```
+
+#### 根据行号截取某一段日志
+
+``` shell
+grep -n "reg" file
+# 找到你要找的日志的行号
+cat file | tail -n +line_no | head -n 100
+# 查看line_no行 后的100行
+```
