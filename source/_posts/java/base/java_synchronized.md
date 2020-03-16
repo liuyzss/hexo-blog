@@ -3,7 +3,7 @@ title: 'java 偏向锁、轻量级锁及重量级锁synchronized原理 '
 date: 2020-03-16 09:55:34
 updated: 2020-03-16 09:55:34
 tags:
-- java thread
+- java thread synchronized
 categories:
 - java
 ---
