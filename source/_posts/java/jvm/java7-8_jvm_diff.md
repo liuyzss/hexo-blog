@@ -14,21 +14,21 @@ categories:
 
 ### java7 内存结构
 
-![https](java7-mem.png)
+![https](java7-8_jvm_diff/java7-mem.png)
 
 Java7及以前版本的Hotspot中方法区位于永久代中。同时，永久代和堆是相互隔离的，但它们使用的物理内存是连续的。
 永久代的垃圾收集是和老年代捆绑在一起的，因此无论谁满了，都会触发永久代和老年代的垃圾收集。
-![https](heap-mem.png)
+![https](java7-8_jvm_diff/heap-mem.png)
 
 但在Java7中永久代中存储的部分数据已经开始转移到Java Heap或Native Memory中了。比如，符号引用(Symbols)转移到了Native Memory；字符串常量池(interned strings)转移到了Java Heap；类的静态变量(class statics)转移到了Java Heap。
 然后，在Java8中，时代变了，Hotspot取消了永久代。永久代真的成了永久的记忆。永久代的参数-XX:PermSize和-XX：MaxPermSize也随之失效。
 
 ### 内存介绍
-![https](jvm7-xmind.jpg)
+![https](java7-8_jvm_diff/jvm7-xmind.jpg)
 
 ### java8 内存结构
 
-![https](java8-mem.png)
+![https](java7-8_jvm_diff/java8-mem.png)
 
 针对Java8的调整，我们再次对内存结构图进行调整。
 元空间存在于本地内存，意味着只要本地内存足够，它不会出现像永久代中“java.lang.OutOfMemoryError: PermGen space”这种错误。看上图中的方法区，是不是“膨胀”了。

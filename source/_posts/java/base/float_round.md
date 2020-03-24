@@ -72,7 +72,7 @@ BCD码（Binary-Coded Decimal）亦称二进码十进数或二-十进制代码�
 由于十进制数共有0、1、2、……、9十个数码，因此，至少需要4位二进制码来表示1位十进制数。4位二进制码共有2^4=16种码组，在这16种代码中，可以任选10种来表示10个十进制数码，共有N=16！/[10!*（16-10）！]等于8008种方案。常用的BCD代码列于末。
 
 
-![https](pic01.png)
+![https](float_round/pic01.png)
 
 #### 问题的提出
 如果我们编译运行下面这个程序会看到什么？
@@ -95,7 +95,7 @@ public class Test{
 Java中的简单浮点数类型float和double不能够进行运算。不光是Java，在其它很多编程语言中也有这样的问题。在大多数情况下，计算的结果是准确的，但是多试几次（可以做一个循环）就可以试出类似上面的错误。现在终于理解为什么要有BCD码了。
 这个问题相当严重，如果你有9.999999999999元，你的计算机是不会认为你可以购买10元的商品的。
 在有的编程语言中提供了专门的货币类型来处理这种情况，但是Java没有。现在让我们看看如何解决这个问题。
- 
+
 四舍五入
 我们的第一个反应是做四舍五入。Math类中的round方法不能设置保留几位小数，我们只能象这样（保留两位）：
 public double round(double value){
@@ -107,7 +107,7 @@ public double round(double value){
 java.text.DecimalFormat也不能解决这个问题：
 System.out.println(new java.text.DecimalFormat("0.00").format(4.025));
 输出是4.02
- 
+
 BigDecimal
 在《Effective Java》这本书中也提到这个原则，float和double只能用来做科学计算或者是工程计算，在商业计算中我们要用 java.math.BigDecimal。BigDecimal一共有4个够造方法，我们不关心用BigInteger来够造的那两个，那么还有两个，它们是：
 BigDecimal(double val) 

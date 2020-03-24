@@ -226,7 +226,7 @@ Layer，基于SSL的HTTP协议）使用了HTTP协议，但HTTPS使用不同于HT
 5. Web服务器利用自己的私钥解密出会话密钥。
 6. Web服务器利用会话密钥加密与客户端之间的通信。
 
-![https](https_establish.jpg)
+![https](http-and-https-details/https_establish.jpg)
 
 ```java
 public class HttpsUtil {

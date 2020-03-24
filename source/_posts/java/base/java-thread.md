@@ -20,7 +20,7 @@ categories:
 
 ### 状态流转如下：
 
-![https](thread_state.png)
+![https](java-thread/thread_state.png)
 
 * 线程进入 WAITING/TIMED_WAITING 会释放同步锁，进入等待队列；唤醒后需要重新竞争资源,失败进入 BLOCKED 状态
 * BLOCKED 状态跟 I/O 的阻塞是不同的，它不是一般意义上的阻塞，而是特指被 synchronized 块阻塞，即是跟线程同步有关的一个状态。IO阻塞线程不会释放同步锁。

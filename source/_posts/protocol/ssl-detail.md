@@ -33,7 +33,7 @@ categories:
 
 *DES算法即数据加密标准，也称为数据加密算法。加密过程如下：*
 
-![https](des_pic.jpg)
+![https](ssl-detail/des_pic.jpg)
 
 在SSL中会用到分组DES、三重DES算法等加密算法对数据进行加密。当然可以选用其他非DES加密算法，视情况而定，后面会详细介绍。
 
@@ -88,7 +88,7 @@ SSL是Netscape于1994年开发的，后来成为了世界上最著名的web安�
 
 SSL介于应用层和TCP层之间。应用层数据不再直接传递给传输层，而是传递给SSL层，SSL层对从应用层收到的数据进行加密，并增加自己的SSL头。
 
-![https](ssl_pic.jpg)
+![https](ssl-detail/ssl_pic.jpg)
 
 ### SSL的工作原理
 
@@ -111,14 +111,14 @@ Content：与消息相关的参数
 
 #### 握手协议的4个阶段
 
-![https](establish_pic.jpg)
+![https](ssl-detail/establish_pic.jpg)
 
 ##### 建立安全能力
 SSL握手的第一阶段启动逻辑连接，建立这个连接的安全能力。首先客户机向服务器发出client
 hello消息并等待服务器响应，随后服务器向客户机返回server hello消息，对client hello消息中的信息进行确认。
 Client hello消息包括Version，Random，Session id，Cipher suite，Compression method等信息。
 
-![https](01_pic.jpg)
+![https](ssl-detail/01_pic.jpg)
 
 *ClientHello 客户发送CilentHello信息，包含如下内容：*
 1. 客户端可以支持的SSL最高版本号
@@ -152,21 +152,21 @@ Client hello消息包括Version，Random，Session id，Cipher suite，Compressi
 3. 证书请求：服务端可能会要求客户自身进行验证。
 4. 服务器握手完成：第二阶段的结束，第三阶段开始的信号
 
-![https](02_pic.jpg)
+![https](ssl-detail/02_pic.jpg)
 
 这里重点介绍一下服务端的验证和密钥交换。这个阶段的前面的（1）证书 和（2）服务器密钥交换是基于密钥交换方法的。而在SSL中密钥交换算法有6种：无效（没有密钥交换）、RSA、匿名Diffie-Hellman、暂时Diffie-Hellman、固定Diffie-Hellman、Fortezza。
 在阶段1过程客户端与服务端协商的过程中已经确定使哪种密钥交换算法。
 
 *如果协商过程中确定使用RSA交换密钥，那么过程如下图：*
 
-![https](03_pic.jpg)
+![https](ssl-detail/03_pic.jpg)
 
 这个方法中，服务器在它的第一个信息中，发送了RSA加密/解密公钥证书。不过，因为预备主秘密是由客户端在下一个阶段生成并发送的，所以第二个信息是空的。注意，公钥证书会进行从服务器到客户端的验证。当服务器收到预备主秘密时，它使用私钥进行解密。服务端拥有私钥是一个证据，可以证明服务器是一个它在第一个信息发送的公钥证书中要求的实体。
 其他的几种密钥交换算法这里就不介绍了。可以参考Behrouz A.Forouzan著的《密码学与网络安全》。
 
 ##### 客户机鉴别与密钥交换
 
-![https](04_pic.jpg)
+![https](ssl-detail/04_pic.jpg)
 
 *客户机启动SSL握手第3阶段，是本阶段所有消息的唯一发送方，服务器是所有消息的唯一接收方。该阶段分为3步：*
 
@@ -176,14 +176,14 @@ Client hello消息包括Version，Random，Session id，Cipher suite，Compressi
 
 *下面也重点介绍一下RSA方式的客户端验证和密钥交换。*
 
-![https](05_pic.jpg)
+![https](ssl-detail/05_pic.jpg)
 
 这种情况，除非服务器在阶段II明确请求，否则没有证书信息。客户端密钥交换方法包括阶段II收到的由RSA公钥加密的预备主密钥。
 阶段III之后，客户要有服务器进行验证，客户和服务器都知道预备主密钥。
 
 ##### 完成
 
-![https](06_pic.jpg)
+![https](ssl-detail/06_pic.jpg)
 
 客户机启动SSL握手第4阶段，使服务器结束。该阶段分为4步，前2个消息来自客户机，后2个消息来自服务器。
 
@@ -191,9 +191,9 @@ Client hello消息包括Version，Random，Session id，Cipher suite，Compressi
 
 这样握手协议完成，下面看下什么是预备主密钥，主密钥是怎么生成的。为了保证信息的完整性和机密性，SSL需要有六个加密秘密：四个密钥和两个IV。为了信息的可信性，客户端需要一个密钥（HMAC），为了加密要有一个密钥，为了分组加密要一个IV，服务也是如此。SSL需要的密钥是单向的，不同于那些在其他方向的密钥。如果在一个方向上有攻击，这种攻击在其他方向是没影响的。生成过程如下：
 
-![https](07_pic.jpg)
-![https](08_pic.jpg)
-![https](09_pic.jpg)
+![https](ssl-detail/07_pic.jpg)
+![https](ssl-detail/08_pic.jpg)
+![https](ssl-detail/09_pic.jpg)
 
 #### 记录协议 
 
@@ -204,7 +204,7 @@ Client hello消息包括Version，Random，Session id，Cipher suite，Compressi
 
 *记录协议的过程：*
 
-![https](10_pic.jpg)
+![https](ssl-detail/10_pic.jpg)
 
 #### 警报协议
 
