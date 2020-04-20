@@ -19,3 +19,14 @@ categories:
 #-Xss128k设置每个线程的堆栈大小
 
 ```
+
+### javaCore 线程堆栈信息导出
+
+```java
+1.Getting a Thread Dump Using jstack
+2.A Thread Dump Using jVisualVM
+3.Generating in a Linux Terminal kill -3 java进程ID
+```
+
+
+
