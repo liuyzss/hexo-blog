@@ -6,6 +6,7 @@ tags:
 - java float double BigDecimal
 categories:
 - java
+- base
 ---
 
 浮点数判断大小有问题，因为底层的二进制数不能精确表示所有的小数。有时候会产生让人觉得莫名其妙的事情。

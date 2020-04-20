@@ -6,6 +6,7 @@ tags:
 - java synchronized
 categories:
 - java
+- thread
 ---
 
 ### monitor的概念

@@ -6,6 +6,7 @@ tags:
 - java thread synchronized
 categories:
 - java
+- thread
 ---
 ### synchronized的实现原理与应用
 在多线程并发编程中synchronized一直是元老级角色，很多人都会称呼它为重量级锁。

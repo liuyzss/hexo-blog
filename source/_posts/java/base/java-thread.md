@@ -6,6 +6,7 @@ tags:
 - java thread
 categories:
 - java
+- thread
 ---
 
 ### 线程状态

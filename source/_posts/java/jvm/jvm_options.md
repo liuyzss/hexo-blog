@@ -6,6 +6,7 @@ tags:
 - java jvm
 categories:
 - java
+- jvm
 ---
 
 ### jvm 参数

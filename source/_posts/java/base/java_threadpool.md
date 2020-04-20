@@ -6,6 +6,7 @@ tags:
 - java tread
 categories:
 - java
+- thread
 ---
 
 ### 类图

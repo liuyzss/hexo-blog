@@ -6,6 +6,7 @@ tags:
 - java
 categories:
 - java
+- base
 ---
 
 

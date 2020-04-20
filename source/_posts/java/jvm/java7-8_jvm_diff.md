@@ -6,6 +6,7 @@ tags:
   - java jvm
 categories:
   - java
+  - jvm
 ---
 
 ### 规范和实现
