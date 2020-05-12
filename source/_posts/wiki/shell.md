@@ -7,6 +7,7 @@ tags:
 - shell
 categories:
 - wiki
+- shell
 ---
 
 ### 常用命令
